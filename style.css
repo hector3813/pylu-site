@@ -1,0 +1,82 @@
+body {
+    background-color: #000000; /* Pure black */
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    text-align: center;
+}
+
+header {
+    padding: 60px 20px; /* Ample white space around logo */
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.hero {
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.benefits {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 50px 20px;
+    background: #111; /* Subtle dark gray for contrast */
+}
+
+.products {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 100px 20px;
+}
+
+.product-card {
+    background: #121212;
+    padding: 40px;
+    border-radius: 12px;
+    width: 300px;
+    transition: transform 0.3s ease;
+    border: 1px solid #333;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent); /* Flavor specific accent color */
+}
+
+.product-image {
+    height: 200px;
+    background: #222;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-to-cart {
+    background: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 12px 24px;
+    font-weight: 700;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+footer {
+    padding: 60px 20px;
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
