@@ -4,61 +4,184 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PYLU | Clean Focus</title>
-    <link rel="stylesheet" href="style.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* BASE STYLES */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background-color: #000; 
+            color: #fff; 
+            font-family: 'Inter', sans-serif; 
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* LOGO SECTION */
+        header {
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.7;
+            max-width: 600px;
+        }
+
+        /* BENEFITS SECTION */
+        .benefits {
+            padding: 100px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .benefit-card {
+            background: #111;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #222;
+        }
+
+        /* PRODUCT GRID */
+        .product-section { padding: 100px 20px; text-align: center; }
+        .product-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 50px;
+        }
+        .product-card {
+            background: #0a0a0a;
+            border: 1px solid #222;
+            padding: 50px 30px;
+            border-radius: 24px;
+            width: 350px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .product-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .img-placeholder {
+            width: 100%;
+            height: 250px;
+            background: #1a1a1a;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #444;
+        }
+        .add-btn {
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            font-weight: 700;
+            margin-top: 25px;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 100px 20px;
+            border-top: 1px solid #222;
+            text-align: center;
+            opacity: 0.5;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
 
-    <header>
+    <header data-aos="fade-down">
         <div class="logo">PYLU</div>
     </header>
 
-    <main>
-        <section class="hero">
-            <h1>Clean Focus. Anytime.</h1>
-            <p>Caffeine + focus. Clean and nicotine-free. Designed for everyday performance.</p>
-        </section>
+    <section class="hero" data-aos="fade-up">
+        <h1>Clean Focus.<br>Anytime.</h1>
+        <p>Caffeine, Designed for Focus. Everyday performance for study, work, and productivity.</p>
+    </section>
 
-        <section class="benefits">
-            <div class="benefit-item">
-                <h3>Clean Energy</h3>
-                <p>No jitters or crash. Sustained mental clarity.</p>
-            </div>
-            <div class="benefit-item">
-                <h3>Nicotine-Free</h3>
-                <p>100% tobacco-free performance pouches.</p>
-            </div>
-        </section>
+    <section class="benefits">
+        <div class="benefit-card" data-aos="fade-right">
+            <h3>Clean Energy</h3>
+            <p>Improved focus and mental clarity without the jitters or crash.</p>
+        </div>
+        <div class="benefit-card" data-aos="fade-left">
+            <h3>Nicotine-Free</h3>
+            <p>100% tobacco-free and nicotine-free performance pouches.</p>
+        </div>
+    </section>
 
-        <section class="products">
-            <div class="product-card" style="--accent: #00ffcc;">
-                <div class="product-image">FLAVOR 1 IMAGE</div>
-                <h2>Flavor One</h2>
+    <section class="product-section">
+        <div class="product-grid">
+            <div class="product-card" style="--accent: #00ffcc;" data-aos="zoom-in" data-aos-delay="100">
+                <div class="img-placeholder">FLAVOR 01</div>
+                <h2>Flavor Name</h2>
                 <p>Caffeine & Nootropics</p>
-                <span>15-20 Pouches | Pack of 3</span>
-                <button class="add-to-cart">Add to Cart</button>
+                <small>15-20 pouches | Pack of 3</small>
+                <button class="add-btn">Add to Cart</button>
             </div>
-            <div class="product-card" style="--accent: #ff0055;">
-                <div class="product-image">FLAVOR 2 IMAGE</div>
-                <h2>Flavor Two</h2>
+            <div class="product-card" style="--accent: #ff0055;" data-aos="zoom-in" data-aos-delay="200">
+                <div class="img-placeholder">FLAVOR 02</div>
+                <h2>Flavor Name</h2>
                 <p>Caffeine & Nootropics</p>
-                <span>15-20 Pouches | Pack of 3</span>
-                <button class="add-to-cart">Add to Cart</button>
+                <small>15-20 pouches | Pack of 3</small>
+                <button class="add-btn">Add to Cart</button>
             </div>
-            <div class="product-card" style="--accent: #0088ff;">
-                <div class="product-image">FLAVOR 3 IMAGE</div>
-                <h2>Flavor Three</h2>
+            <div class="product-card" style="--accent: #0088ff;" data-aos="zoom-in" data-aos-delay="300">
+                <div class="img-placeholder">FLAVOR 03</div>
+                <h2>Flavor Name</h2>
                 <p>Caffeine & Nootropics</p>
-                <span>15-20 Pouches | Pack of 3</span>
-                <button class="add-to-cart">Add to Cart</button>
+                <small>15-20 pouches | Pack of 3</small>
+                <button class="add-btn">Add to Cart</button>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <footer>
-        <p>Contact: hello@pylu.com</p>
+        <p>hello@pylu.com</p>
         <p>Nicotine-free | Tobacco-free</p>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
 </body>
 </html>
