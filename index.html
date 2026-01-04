@@ -11,69 +11,87 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
-            background-color: #000; 
-            color: #fff; 
+            background-color: #ffffff; /* Light Mode [cite: 62] */
+            color: #000000; 
             font-family: 'Inter', sans-serif; 
             line-height: 1.6;
             overflow-x: hidden;
         }
 
         /* LOGO [cite: 10-16] */
-        header { padding: 80px 20px; text-align: center; }
+        header { padding: 60px 20px; text-align: center; }
         .logo { font-size: 2.5rem; font-weight: 700; letter-spacing: -2px; text-transform: uppercase; }
 
         /* HERO [cite: 17-28] */
-        .hero { height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
-        .hero h1 { font-size: clamp(3rem, 8vw, 6rem); line-height: 1; margin-bottom: 20px; }
+        .hero { height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
+        .hero h1 { font-size: clamp(3rem, 8vw, 6rem); line-height: 1; margin-bottom: 20px; letter-spacing: -3px; }
+        .hero p { font-size: 1.25rem; max-width: 500px; font-weight: 500; }
 
-        /* SCROLLING BENEFITS SECTION (Inspired by Reference) [cite: 29-49] */
+        /* INGREDIENT BENEFITS (CENTERED CONTAINER) [cite: 29-49] */
         .ingredient-section {
             padding: 100px 20px;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            text-align: center;
         }
         .ingredient-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            margin-top: 50px;
+            grid-template-columns: 1fr 1.2fr 1fr; /* Centers the middle column */
+            gap: 40px;
             align-items: center;
         }
-        .ingredient-item { padding: 20px; text-align: left; }
-        .ingredient-item h3 { font-size: 1.8rem; margin-bottom: 10px; color: #fff; }
-        .ingredient-item p { color: #888; font-size: 1.1rem; }
+        .ingredient-column { display: flex; flex-direction: column; gap: 80px; }
+        .ingredient-item h3 { font-size: 1.5rem; margin-bottom: 8px; }
+        .ingredient-item p { color: #666; font-size: 1rem; }
         
-        /* Central visual placeholder for the pouch/canister [cite: 61] */
-        .center-visual {
-            grid-row: span 2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .placeholder-box {
-            width: 300px;
-            height: 400px;
-            background: #111;
-            border: 1px solid #222;
-            border-radius: 20px;
+        /* Central Container Image */
+        .center-visual { text-align: center; }
+        .pylu-container-box {
+            width: 100%;
+            height: 500px;
+            background: #f5f5f5; /* Subtle gray for light mode depth */
+            border-radius: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #444;
+            font-weight: 700;
+            color: #ccc;
+            border: 1px solid #eee;
         }
 
         /* HOW IT FEELS [cite: 50-56] */
-        .feels-section { padding: 100px 20px; text-align: center; background: #050505; }
-        .phrase { font-size: 2.5rem; font-weight: 700; margin: 20px 0; opacity: 0.8; }
+        .feels-section { padding: 120px 20px; text-align: center; background: #fafafa; }
+        .phrase { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; margin: 30px 0; letter-spacing: -1px; }
 
-        /* PRODUCTS [cite: 63-70] */
-        .product-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; padding: 100px 20px; }
-        .product-card { background: #0a0a0a; border: 1px solid #222; padding: 40px; border-radius: 24px; width: 320px; transition: 0.3s; }
-        .product-card:hover { border-color: #fff; transform: translateY(-10px); }
-        .add-btn { background: #fff; color: #000; border: none; padding: 15px; width: 100%; font-weight: 700; margin-top: 20px; cursor: pointer; border-radius: 8px; }
+        /* PRODUCT GRID (3 SKUS) [cite: 63-70] */
+        .product-section { padding: 100px 20px; text-align: center; }
+        .product-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin-top: 50px; }
+        .product-card { 
+            background: #fff; 
+            border: 1px solid #eee; 
+            padding: 40px 30px; 
+            border-radius: 24px; 
+            width: 340px; 
+            transition: 0.3s cubic-bezier(0.2, 0, 0, 1); 
+        }
+        .product-card:hover { border-color: #000; transform: translateY(-10px); }
+        .product-card h2 { font-size: 1.8rem; margin: 20px 0 5px 0; }
+        .product-card p { font-weight: 600; color: #444; }
+        .product-card small { color: #888; display: block; margin: 10px 0; }
+        
+        .add-btn { 
+            background: #000; 
+            color: #fff; 
+            border: none; 
+            padding: 18px; 
+            width: 100%; 
+            font-weight: 700; 
+            margin-top: 25px; 
+            cursor: pointer; 
+            border-radius: 12px;
+            font-size: 1rem;
+        }
 
-        footer { padding: 80px 20px; border-top: 1px solid #222; text-align: center; opacity: 0.5; }
+        footer { padding: 80px 20px; text-align: center; border-top: 1px solid #eee; color: #999; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -89,55 +107,79 @@
 
     <section class="ingredient-section">
         <div class="ingredient-grid">
-            <div class="ingredient-item" data-aos="fade-right" data-aos-delay="100">
-                <h3>Caffeine</h3>
-                <p>Provides fast, clean energy without needing a drink [cite: 41-42].</p>
-            </div>
-            <div class="ingredient-item" data-aos="fade-left" data-aos-delay="200">
-                <h3>L-Theanine</h3>
-                <p>Helps smooth caffeine stimulation so the energy feels calm and focused [cite: 43-44].</p>
-            </div>
-            
-            <div class="center-visual" data-aos="zoom-in">
-                <div class="placeholder-box">PYLU CONTAINER [cite: 61]</div>
+            <div class="ingredient-column">
+                <div class="ingredient-item" data-aos="fade-right">
+                    <h3>Caffeine</h3>
+                    <p>Provides fast, clean energy without needing a drink[cite: 42].</p>
+                </div>
+                <div class="ingredient-item" data-aos="fade-right" data-aos-delay="200">
+                    <h3>Alpha-GPC</h3>
+                    <p>Supports mental clarity, attention, and cognitive performance[cite: 46].</p>
+                </div>
             </div>
 
-            <div class="ingredient-item" data-aos="fade-right" data-aos-delay="300">
-                <h3>Alpha-GPC</h3>
-                <p>Supports mental clarity, attention, and cognitive performance [cite: 45-46].</p>
+            <div class="center-visual" data-aos="zoom-in">
+                <div class="pylu-container-box">PYLU CONTAINER</div>
             </div>
-            <div class="ingredient-item" data-aos="fade-left" data-aos-delay="400">
-                <h3>Vitamin B</h3>
-                <p>Supports energy metabolism and brain function [cite: 47-48].</p>
+
+            <div class="ingredient-column">
+                <div class="ingredient-item" data-aos="fade-left" data-aos-delay="100">
+                    <h3>L-Theanine</h3>
+                    <p>Helps smooth caffeine stimulation so the energy feels calm and focused[cite: 44].</p>
+                </div>
+                <div class="ingredient-item" data-aos="fade-left" data-aos-delay="300">
+                    <h3>Vitamin B</h3>
+                    <p>Supports energy metabolism and brain function[cite: 48].</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="feels-section">
-        <div class="phrase" data-aos="fade-up">"Focused, not jittery." [cite: 54]</div>
-        <div class="phrase" data-aos="fade-up" data-aos-delay="200">"Sustained energy without the crash." [cite: 55]</div>
-        <div class="phrase" data-aos="fade-up" data-aos-delay="400">"Clear-headed and controlled." [cite: 56]</div>
+        <div class="phrase" data-aos="fade-up">"Focused, not jittery."</div>
+        <div class="phrase" data-aos="fade-up" data-aos-delay="200">"Sustained energy without the crash."</div>
+        <div class="phrase" data-aos="fade-up" data-aos-delay="400">"Clear-headed and controlled."</div>
     </section>
 
-    <section class="product-grid">
-        <div class="product-card" data-aos="fade-up">
-            <div style="height:200px; background:#1a1a1a; margin-bottom:20px; border-radius:10px;"></div>
-            <h2>Flavor Name [cite: 66]</h2>
-            <p>Caffeine & Nootropics [cite: 67]</p>
-            <small>15-20 pouches | Pack of 3 [cite: 68]</small>
-            <p style="font-size: 12px; margin-top: 10px;">Nicotine-free | Tobacco-free [cite: 69]</p>
-            <button class="add-btn">Add to Cart [cite: 70]</button>
+    <section class="product-section">
+        <div class="product-grid">
+            <div class="product-card" data-aos="fade-up">
+                <div style="height:220px; background:#f9f9f9; border-radius:15px;"></div>
+                <h2>Flavor 01</h2>
+                <p>Caffeine & Nootropics [cite: 67]</p>
+                <small>15-20 pouches | Pack of 3 [cite: 68]</small>
+                <small style="color:#000; font-weight:700;">Nicotine-free | Tobacco-free [cite: 69]</small>
+                <button class="add-btn">Add to Cart</button>
+            </div>
+            
+            <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                <div style="height:220px; background:#f9f9f9; border-radius:15px;"></div>
+                <h2>Flavor 02</h2>
+                <p>Caffeine & Nootropics [cite: 67]</p>
+                <small>15-20 pouches | Pack of 3 [cite: 68]</small>
+                <small style="color:#000; font-weight:700;">Nicotine-free | Tobacco-free [cite: 69]</small>
+                <button class="add-btn">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+                <div style="height:220px; background:#f9f9f9; border-radius:15px;"></div>
+                <h2>Flavor 03</h2>
+                <p>Caffeine & Nootropics [cite: 67]</p>
+                <small>15-20 pouches | Pack of 3 [cite: 68]</small>
+                <small style="color:#000; font-weight:700;">Nicotine-free | Tobacco-free [cite: 69]</small>
+                <button class="add-btn">Add to Cart</button>
+            </div>
         </div>
-        </section>
+    </section>
 
     <footer>
-        <p>hello@pylu.com [cite: 78]</p>
+        <p>Contact: hello@pylu.com [cite: 78]</p>
         <p>Nicotine-free | Tobacco-free [cite: 80]</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1200, once: false });
+        AOS.init({ duration: 1000, once: false });
     </script>
 </body>
 </html>
