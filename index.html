@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PYLU | Clean Focus</title>
+    <title>pylu | clean focus</title>
     
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,700&f[]=chillax@500&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -14,162 +14,190 @@
         body { 
             background-color: #ffffff; 
             color: #000000; 
-            font-family: 'Chillax', sans-serif; /* Secondary Text Font */
+            font-family: 'Chillax', sans-serif; 
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* LOGO - Satoshi Regular */
+        /* LOGO - Lowercase Satoshi [cite: 10, 11] */
         header { padding: 60px 20px; text-align: center; }
         .logo { 
             font-family: 'Satoshi', sans-serif; 
             font-size: 2.5rem; 
             font-weight: 400; 
-            letter-spacing: -1px; 
-            text-transform: uppercase; 
+            letter-spacing: -2px; 
+            text-transform: lowercase; /* Matches your request */
         }
 
-        /* HERO */
+        /* HERO [cite: 17, 18, 25] */
         .hero { height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
-        .hero h1 { font-size: clamp(3rem, 8vw, 6rem); line-height: 1; margin-bottom: 20px; letter-spacing: -2px; font-weight: 500; }
-        .hero p { font-size: 1.25rem; max-width: 500px; }
+        .hero h1 { font-size: clamp(3rem, 8vw, 6rem); line-height: 1; margin-bottom: 20px; letter-spacing: -3px; font-weight: 500; }
 
-        /* INGREDIENT BENEFITS (CENTERED CONTAINER) */
-        .ingredient-section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
-        .ingredient-grid { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 40px; align-items: center; }
-        .ingredient-column { display: flex; flex-direction: column; gap: 80px; }
-        .ingredient-item h3 { font-size: 1.5rem; margin-bottom: 8px; font-weight: 500; }
-        .ingredient-item p { color: #666; font-size: 1rem; }
-        
-        .center-visual { text-align: center; }
-        .pylu-container-box {
-            width: 100%; height: 500px; background: #f5f5f5; border-radius: 30px;
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 500; color: #ccc; border: 1px solid #eee;
+        /* VIDEO-STYLE BENEFITS SECTION [cite: 29, 30] */
+        .ingredient-section {
+            padding: 150px 20px;
+            max-width: 1300px;
+            margin: 0 auto;
+            position: relative;
         }
 
-        /* HOW IT FEELS */
-        .feels-section { padding: 120px 20px; text-align: center; background: #fafafa; }
-        .phrase { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 500; margin: 30px 0; letter-spacing: -1px; }
+        /* Replicating the split-view animation from the video */
+        .ingredient-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            align-items: center;
+            text-align: center;
+        }
 
-        /* PRODUCT GRID (Thai Iced Tea, Matcha, Jasmine Milk Tea) */
+        .benefit-text {
+            font-size: clamp(2rem, 4vw, 4.5rem);
+            font-weight: 500;
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+
+        .benefit-sub {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 10px;
+            font-weight: 400;
+        }
+
+        /* Centered Product Container [cite: 60] */
+        .center-pouch {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pylu-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            filter: drop-shadow(0 20px 50px rgba(0,0,0,0.05));
+        }
+
+        /* HOW IT FEELS [cite: 49, 51, 53, 54, 55] */
+        .feels-section { padding: 150px 20px; text-align: center; background: #fafafa; }
+        .phrase { font-size: clamp(2rem, 5vw, 4rem); font-weight: 500; margin: 40px 0; letter-spacing: -2px; }
+
+        /* PRODUCT GRID (3 SKUs) [cite: 62, 63, 67, 68] */
         .product-section { padding: 100px 20px; text-align: center; }
-        .product-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; margin-top: 50px; }
+        .product-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; margin-top: 50px; }
         .product-card { 
-            background: #fff; border: 1px solid #eee; padding: 40px 30px; border-radius: 24px; width: 340px; 
-            transition: 0.3s cubic-bezier(0.2, 0, 0, 1); 
+            background: #fff; border: 1px solid #eee; padding: 50px 40px; border-radius: 30px; width: 380px; 
+            transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1); 
         }
-        .product-card:hover { border-color: #000; transform: translateY(-10px); }
-        .product-card h2 { font-size: 1.8rem; margin: 20px 0 5px 0; font-weight: 500; }
-        .product-card p { font-weight: 500; color: #444; }
-        .product-card small { color: #888; display: block; margin: 10px 0; }
+        .product-card:hover { border-color: #000; transform: translateY(-15px); }
+        .product-card h2 { font-size: 2rem; margin: 25px 0 5px 0; font-weight: 500; text-transform: lowercase; }
         
         .add-btn { 
-            background: #000; color: #fff; border: none; padding: 18px; width: 100%; 
-            font-weight: 500; margin-top: 25px; cursor: pointer; border-radius: 12px; font-size: 1rem;
+            background: #000; color: #fff; border: none; padding: 20px; width: 100%; 
+            font-weight: 500; margin-top: 30px; cursor: pointer; border-radius: 15px; font-size: 1.1rem;
             font-family: 'Chillax', sans-serif;
         }
 
-        /* EMAIL POPUP */
+        /* EMAIL POPUP [cite: 70, 71, 72] */
         #email-popup {
-            position: fixed; bottom: 30px; right: 30px; width: 350px;
-            background: #fff; border: 1px solid #eee; padding: 30px; border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1); z-index: 1000; display: none;
+            position: fixed; bottom: 40px; right: 40px; width: 380px;
+            background: #fff; border: 1px solid #eee; padding: 40px; border-radius: 25px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1); z-index: 1000; display: none;
         }
-        .close-popup { cursor: pointer; float: right; font-weight: bold; }
+        .close-popup { cursor: pointer; float: right; font-size: 1.5rem; opacity: 0.3; }
 
-        footer { padding: 80px 20px; text-align: center; border-top: 1px solid #eee; color: #999; font-size: 0.9rem; }
+        footer { padding: 100px 20px; text-align: center; border-top: 1px solid #eee; color: #999; font-size: 1rem; }
     </style>
 </head>
 <body>
 
     <div id="email-popup">
         <span class="close-popup" onclick="closePopup()">✕</span>
-        <h3 style="font-weight: 500;">Get a Launch Discount</h3>
-        <p style="font-size: 0.9rem; color: #666;">Join the waitlist for exclusive early access.</p>
-        <input type="email" placeholder="Email Address" style="width: 100%; padding: 12px; margin: 15px 0; border: 1px solid #eee; border-radius: 8px; font-family: 'Chillax', sans-serif;">
-        <button class="add-btn" onclick="closePopup()">Keep me updated</button>
+        <h3 style="font-weight: 500; font-size: 1.5rem;">get a launch discount</h3>
+        <p style="margin-top: 10px; color: #666;">join the waitlist for early access.</p>
+        <input type="email" placeholder="email address" style="width: 100%; padding: 15px; margin: 20px 0; border: 1px solid #eee; border-radius: 10px; font-family: 'Chillax', sans-serif;">
+        <button class="add-btn" onclick="closePopup()">keep me updated</button>
     </div>
 
     <header data-aos="fade-down">
-        <div class="logo">PYLU</div>
+        <div class="logo">pylu</div>
     </header>
 
     <section class="hero" data-aos="fade-up">
-        <h1>Clean Focus.<br>Anytime.</h1>
-        <p>Caffeine, Designed for Focus. Everyday performance.</p>
+        <h1 style="text-transform: lowercase;">clean focus.<br>anytime.</h1>
+        <p>caffeine, designed for focus. everyday performance.</p>
     </section>
 
     <section class="ingredient-section">
         <div class="ingredient-grid">
-            <div class="ingredient-column">
-                <div class="ingredient-item" data-aos="fade-right">
-                    <h3>Caffeine</h3>
-                    <p>Provides fast, clean energy without needing a drink.</p>
+            <div class="side-col">
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <div class="benefit-text">clean</div>
+                    <div class="benefit-sub">sustained energy</div>
                 </div>
-                <div class="ingredient-item" data-aos="fade-right" data-aos-delay="200">
-                    <h3>Alpha-GPC</h3>
-                    <p>Supports mental clarity, attention, and cognitive performance.</p>
+                <div style="margin-top: 150px;" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
+                    <div class="benefit-text">no</div>
+                    <div class="benefit-sub">jitters or crash</div>
                 </div>
             </div>
 
-            <div class="center-visual" data-aos="zoom-in">
-                <div class="pylu-container-box">PYLU CONTAINER</div>
+            <div class="center-pouch" data-aos="zoom-in" data-aos-duration="1200">
+                <img src="pylu-hero.png" alt="pylu pouch" class="pylu-image">
             </div>
 
-            <div class="ingredient-column">
-                <div class="ingredient-item" data-aos="fade-left" data-aos-delay="100">
-                    <h3>L-Theanine</h3>
-                    <p>Helps smooth caffeine stimulation so the energy feels calm and focused.</p>
+            <div class="side-col">
+                <div data-aos="fade-left" data-aos-delay="100" data-aos-duration="1000">
+                    <div class="benefit-text">nicotine</div>
+                    <div class="benefit-sub">free performance</div>
                 </div>
-                <div class="ingredient-item" data-aos="fade-left" data-aos-delay="300">
-                    <h3>Vitamin B</h3>
-                    <p>Supports energy metabolism and brain function.</p>
+                <div style="margin-top: 150px;" data-aos="fade-left" data-aos-delay="300" data-aos-duration="1000">
+                    <div class="benefit-text">mental</div>
+                    <div class="benefit-sub">clarity & attention</div>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="feels-section">
-        <div class="phrase" data-aos="fade-up">"Focused, not jittery."</div>
-        <div class="phrase" data-aos="fade-up" data-aos-delay="200">"Sustained energy without the crash."</div>
-        <div class="phrase" data-aos="fade-up" data-aos-delay="400">"Clear-headed and controlled."</div>
+        <div class="phrase" data-aos="fade-up">"focused, not jittery."</div>
+        <div class="phrase" data-aos="fade-up" data-aos-delay="200">"energy without the crash."</div>
+        <div class="phrase" data-aos="fade-up" data-aos-delay="400">"clear-headed and controlled."</div>
     </section>
 
     <section class="product-section">
         <div class="product-grid">
             <div class="product-card" data-aos="fade-up">
-                <div style="height:220px; background:#f9f9f9; border-radius:15px;"></div>
-                <h2>Thai Iced Tea</h2>
-                <p>Caffeine & Nootropics</p>
-                <small>15-20 pouches | Pack of 3</small>
-                <small style="color:#000; font-weight:500;">Nicotine-free | Tobacco-free</small>
-                <button class="add-btn">Add to Cart</button>
+                <img src="thai-tea.png" style="width:100%; height:250px; object-fit:contain;">
+                <h2>thai iced tea</h2>
+                <p>caffeine & nootropics</p>
+                <small>15-20 pouches | pack of 3</small>
+                <small style="color:#000; font-weight:500;">nicotine-free | tobacco-free</small>
+                <button class="add-btn">add to cart</button>
             </div>
             
             <div class="product-card" data-aos="fade-up" data-aos-delay="100">
-                <div style="height:220px; background:#f9f9f9; border-radius:15px;"></div>
-                <h2>Matcha</h2>
-                <p>Caffeine & Nootropics</p>
-                <small>15-20 pouches | Pack of 3</small>
-                <small style="color:#000; font-weight:500;">Nicotine-free | Tobacco-free</small>
-                <button class="add-btn">Add to Cart</button>
+                <img src="matcha.png" style="width:100%; height:250px; object-fit:contain;">
+                <h2>matcha</h2>
+                <p>caffeine & nootropics</p>
+                <small>15-20 pouches | pack of 3</small>
+                <small style="color:#000; font-weight:500;">nicotine-free | tobacco-free</small>
+                <button class="add-btn">add to cart</button>
             </div>
 
             <div class="product-card" data-aos="fade-up" data-aos-delay="200">
-                <div style="height:220px; background:#f9f9f9; border-radius:15px;"></div>
-                <h2>Jasmine Milk Tea</h2>
-                <p>Caffeine & Nootropics</p>
-                <small>15-20 pouches | Pack of 3</small>
-                <small style="color:#000; font-weight:500;">Nicotine-free | Tobacco-free</small>
-                <button class="add-btn">Add to Cart</button>
+                <img src="jasmine.png" style="width:100%; height:250px; object-fit:contain;">
+                <h2>jasmine milk tea</h2>
+                <p>caffeine & nootropics</p>
+                <small>15-20 pouches | pack of 3</small>
+                <small style="color:#000; font-weight:500;">nicotine-free | tobacco-free</small>
+                <button class="add-btn">add to cart</button>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>Contact: hello@pylu.com</p>
-        <p>Nicotine-free | Tobacco-free</p>
+        <p>hello@pylu.com</p>
+        <p>nicotine-free | tobacco-free [cite: 79]</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
