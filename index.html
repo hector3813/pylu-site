@@ -10,86 +10,26 @@
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #fff; color: #000; font-family: 'Chillax', sans-serif; overflow-x: hidden; }
         
-        body { 
-            background-color: #ffffff; 
-            color: #000000; 
-            font-family: 'Chillax', sans-serif; 
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
+        /* Logo: all undercased [cite: 10] */
         header { padding: 60px 20px; text-align: center; }
-        .logo { 
-            font-family: 'Satoshi', sans-serif; 
-            font-size: 2.5rem; 
-            font-weight: 400; 
-            letter-spacing: -2px; 
-            text-transform: lowercase; 
-        }
+        .logo { font-family: 'Satoshi', sans-serif; font-size: 2.5rem; text-transform: lowercase; letter-spacing: -2px; }
 
         .hero { height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
-        .hero h1 { font-size: clamp(3rem, 8vw, 6rem); line-height: 1; margin-bottom: 20px; letter-spacing: -3px; font-weight: 500; }
+        .hero h1 { font-size: clamp(3rem, 8vw, 6rem); text-transform: lowercase; letter-spacing: -3px; line-height: 1; }
 
-        .ingredient-section {
-            padding: 150px 20px;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
+        /* Benefits: Video-inspired split layout [cite: 29-48] */
+        .benefit-section { display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center; padding: 100px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
+        .benefit-title { font-size: clamp(2rem, 4vw, 4rem); font-weight: 500; letter-spacing: -2px; }
+        .benefit-desc { color: #666; font-size: 1rem; margin-top: 5px; }
 
-        .ingredient-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 20px;
-            align-items: center;
-            text-align: center;
-        }
+        .pylu-image { width: 100%; max-width: 400px; height: auto; }
 
-        .benefit-text {
-            font-size: clamp(2rem, 4vw, 4.5rem);
-            font-weight: 500;
-            letter-spacing: -2px;
-            line-height: 1.1;
-        }
-
-        .benefit-sub {
-            font-size: 1.1rem;
-            color: #666;
-            margin-top: 10px;
-        }
-
-        .center-pouch {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Temporary high-quality placeholder image */
-        .pylu-image {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-        }
-
-        .feels-section { padding: 150px 20px; text-align: center; background: #fafafa; }
-        .phrase { font-size: clamp(2rem, 5vw, 4rem); font-weight: 500; margin: 40px 0; letter-spacing: -2px; }
-
-        .product-section { padding: 100px 20px; text-align: center; }
-        .product-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; margin-top: 50px; }
-        .product-card { 
-            background: #fff; border: 1px solid #eee; padding: 50px 40px; border-radius: 30px; width: 380px; 
-            transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1); 
-        }
-        .product-card:hover { border-color: #000; transform: translateY(-15px); }
-        .product-card h2 { font-size: 2rem; margin: 25px 0 5px 0; font-weight: 500; text-transform: lowercase; }
-        
-        .add-btn { 
-            background: #000; color: #fff; border: none; padding: 20px; width: 100%; 
-            font-weight: 500; margin-top: 30px; cursor: pointer; border-radius: 15px; font-size: 1.1rem;
-            font-family: 'Chillax', sans-serif;
-        }
-
-        footer { padding: 100px 20px; text-align: center; border-top: 1px solid #eee; color: #999; }
+        .product-grid { display: flex; justify-content: center; gap: 30px; padding: 100px 20px; flex-wrap: wrap; }
+        .product-card { border: 1px solid #eee; padding: 40px; border-radius: 24px; width: 340px; transition: 0.4s; text-align: center; }
+        .product-card:hover { border-color: #000; transform: translateY(-10px); }
+        .product-card h2 { text-transform: lowercase; font-size: 1.8rem; margin: 20px 0 10px; }
     </style>
 </head>
 <body>
@@ -99,85 +39,34 @@
     </header>
 
     <section class="hero" data-aos="fade-up">
-        <h1 style="text-transform: lowercase;">clean focus.<br>anytime.</h1>
-        <p>caffeine, designed for focus. everyday performance.</p>
+        <h1>clean focus.<br>anytime.</h1>
     </section>
 
-    <section class="ingredient-section">
-        <div class="ingredient-grid">
-            <div class="side-col">
-                <div data-aos="fade-right">
-                    <div class="benefit-text">clean</div>
-                    <div class="benefit-sub">sustained energy</div>
-                </div>
-                <div style="margin-top: 150px;" data-aos="fade-right" data-aos-delay="200">
-                    <div class="benefit-text">no</div>
-                    <div class="benefit-sub">jitters or crash</div>
-                </div>
-            </div>
-
-            <div class="center-pouch" data-aos="zoom-in">
-                <img src="https://via.placeholder.com/400x600/f5f5f5/cccccc?text=pylu+pouch" alt="pylu pouch" class="pylu-image">
-            </div>
-
-            <div class="side-col">
-                <div data-aos="fade-left" data-aos-delay="100">
-                    <div class="benefit-text">nicotine</div>
-                    <div class="benefit-sub">free performance</div>
-                </div>
-                <div style="margin-top: 150px;" data-aos="fade-left" data-aos-delay="300">
-                    <div class="benefit-text">mental</div>
-                    <div class="benefit-sub">clarity & attention</div>
-                </div>
-            </div>
+    <div class="benefit-section">
+        <div data-aos="fade-right">
+            <div class="benefit-title">clean</div>
+            <div class="benefit-desc">sustained energy [cite: 33]</div>
         </div>
-    </section>
-
-    <section class="feels-section">
-        <div class="phrase" data-aos="fade-up">"focused, not jittery."</div>
-        <div class="phrase" data-aos="fade-up" data-aos-delay="200">"energy without the crash."</div>
-        <div class="phrase" data-aos="fade-up" data-aos-delay="400">"clear-headed and controlled."</div>
-    </section>
-
-    <section class="product-section">
-        <div class="product-grid">
-            <div class="product-card" data-aos="fade-up">
-                <div style="height:250px; background:#f9f9f9; border-radius:15px; display:flex; align-items:center; justify-content:center; color:#ccc;">IMAGE</div>
-                <h2>thai iced tea</h2>
-                <p>caffeine & nootropics</p>
-                <small>15-20 pouches | pack of 3</small>
-                <button class="add-btn">add to cart</button>
-            </div>
-            <div class="product-card" data-aos="fade-up" data-aos-delay="100">
-                <div style="height:250px; background:#f9f9f9; border-radius:15px; display:flex; align-items:center; justify-content:center; color:#ccc;">IMAGE</div>
-                <h2>matcha</h2>
-                <p>caffeine & nootropics</p>
-                <small>15-20 pouches | pack of 3</small>
-                <button class="add-btn">add to cart</button>
-            </div>
-            <div class="product-card" data-aos="fade-up" data-aos-delay="200">
-                <div style="height:250px; background:#f9f9f9; border-radius:15px; display:flex; align-items:center; justify-content:center; color:#ccc;">IMAGE</div>
-                <h2>jasmine milk tea</h2>
-                <p>caffeine & nootropics</p>
-                <small>15-20 pouches | pack of 3</small>
-                <button class="add-btn">add to cart</button>
-            </div>
+        <div data-aos="zoom-in">
+            <img src="pylu-hero.png" class="pylu-image" alt="pylu container">
         </div>
-    </section>
+        <div data-aos="fade-left">
+            <div class="benefit-title">nicotine</div>
+            <div class="benefit-desc">free performance [cite: 36]</div>
+        </div>
+    </div>
 
-    <footer>
-        <p>hello@pylu.com</p>
-        <p>nicotine-free | tobacco-free</p>
-    </footer>
+    <section class="product-grid">
+        <div class="product-card" data-aos="fade-up">
+            <img src="thai-tea.png" style="width:100%">
+            <h2>thai iced tea</h2>
+            <button style="background:#000; color:#fff; width:100%; padding:15px; border-radius:12px; margin-top:20px; cursor:pointer; font-family:'Chillax';">add to cart</button>
+        </div>
+        </section>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // This activates the scrolling animations
-        AOS.init({ 
-            duration: 1000, 
-            once: false,
-            mirror: true 
-        });
+        AOS.init({ duration: 1000, once: false, mirror: true });
     </script>
 </body>
 </html>
