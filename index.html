@@ -5,101 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pylu | clean focus</title>
     
-    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,700&f[]=chillax@500&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400&f[]=chillax@500&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        html { scroll-snap-type: y proximity; scroll-behavior: smooth; }
-
         body { 
-            background-color: #0d110d; 
+            background-color: #0d110d; /* Premium Forest Green Theme */
             color: #f0f0e8; 
             font-family: 'Chillax', sans-serif; 
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        /* Fixed Brand Frame to reduce "Blank" feeling */
+        /* Fixed Brand Frame to define space */
         .page-frame {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            border: 1px solid rgba(168, 184, 152, 0.1);
-            pointer-events: none; z-index: 100;
+            border: 20px solid #0d110d; pointer-events: none; z-index: 100;
         }
 
-        section { 
-            min-height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            scroll-snap-align: start;
-            padding: 40px 20px;
-            position: relative;
-        }
-
-        header { position: absolute; top: 40px; width: 100%; text-align: center; z-index: 101; }
+        /* Logo - all undercased Satoshi */
+        header { padding: 40px 20px; text-align: center; }
         .logo { 
             font-family: 'Satoshi', sans-serif; font-size: 2.2rem; 
             text-transform: lowercase; color: #a8b898; 
         }
 
-        /* Hero with Background Text to fill space */
+        .hero { height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
         .hero h1 { 
-            font-size: clamp(4rem, 12vw, 9rem); 
-            letter-spacing: -5px; line-height: 0.85; 
-            text-transform: lowercase; z-index: 2;
-            background: linear-gradient(to bottom, #f0f0e8, #6d7a60);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-size: clamp(3.5rem, 12vw, 8rem); letter-spacing: -4px; line-height: 0.85; 
+            text-transform: lowercase; color: #f0f0e8; 
         }
 
-        .bg-text-blur {
-            position: absolute; font-size: 20vw; font-weight: 700;
-            color: rgba(168, 184, 152, 0.03); z-index: 1; pointer-events: none;
-            user-select: none; font-family: 'Satoshi';
-        }
-
-        /* STICKY BENEFITS - No more empty space */
-        .sticky-wrapper { height: 300vh; position: relative; background: #0a0e0a; }
+        /* STICKY SECTION - Locked Scroll [cite: 3] */
+        .sticky-wrapper { height: 350vh; position: relative; }
         .sticky-container {
             position: sticky; top: 0; height: 100vh;
             display: flex; justify-content: center; align-items: center;
         }
 
-        .benefit-grid {
-            display: grid; grid-template-columns: 1fr 1.2fr 1fr;
-            width: 100%; max-width: 1400px; align-items: center; gap: 20px;
+        .benefit-content {
+            display: grid; 
+            grid-template-columns: 1fr 1fr 1fr; /* Tighter 3-column split */
+            width: 100%; max-width: 1100px; /* Reduced width to stop it from being spread apart */
+            padding: 0 20px; align-items: center; gap: 0;
         }
 
-        .benefit-block { margin-bottom: 100px; transition: 0.5s; }
-        .benefit-text { font-size: clamp(2rem, 4.5vw, 4.5rem); color: #a8b898; letter-spacing: -3px; line-height: 1; }
-        .benefit-sub { font-size: 1rem; color: #666; margin-top: 5px; }
+        .side-col { display: flex; flex-direction: column; gap: 150px; }
+        .side-left { text-align: right; padding-right: 40px; }
+        .side-right { text-align: left; padding-left: 40px; }
 
+        .benefit-text { 
+            font-size: clamp(2rem, 4vw, 4rem); font-weight: 500; 
+            color: #a8b898; letter-spacing: -3px; line-height: 1; 
+            text-transform: lowercase;
+        }
+        .benefit-sub { font-size: 1rem; color: #6d7a60; text-transform: lowercase; margin-top: 5px; }
+
+        /* Centered Picture [cite: 60, 64] */
         .pylu-image { 
-            width: 100%; max-width: 480px; height: auto; 
-            filter: drop-shadow(0 30px 60px rgba(0,0,0,0.8));
+            width: 100%; max-width: 420px; height: auto; 
+            filter: drop-shadow(0 20px 50px rgba(0,0,0,0.5));
         }
 
-        /* PRODUCT CARDS - Packed and clean */
-        .product-grid { 
-            display: flex; justify-content: center; flex-wrap: wrap; 
-            gap: 25px; width: 100%; max-width: 1300px;
+        /* Experience Phrases [cite: 51, 53-55] */
+        .phrase-section { padding: 100px 20px; text-align: center; }
+        .phrase { 
+            font-size: clamp(2rem, 5vw, 4rem); margin: 60px 0; 
+            letter-spacing: -2px; text-transform: lowercase; color: #f0f0e8; 
         }
+
+        /* Product Cards [cite: 5, 62-68] */
+        .product-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; padding: 100px 20px; }
         .product-card { 
             background: #151a15; border: 1px solid #232923; 
-            padding: 40px; border-radius: 20px; width: 380px; 
-            text-align: center; transition: 0.5s;
+            padding: 40px; border-radius: 20px; width: 360px; text-align: center;
         }
-        .product-card:hover { border-color: #a8b898; transform: scale(1.02); }
         .product-card h2 { color: #a8b898; margin: 15px 0; font-size: 1.8rem; text-transform: lowercase; }
         
         .add-btn { 
             background: #a8b898; color: #0d110d; border: none; padding: 18px; 
-            width: 100%; border-radius: 10px; font-weight: 700; cursor: pointer;
-            font-family: 'Chillax'; margin-top: 20px;
+            width: 100%; border-radius: 12px; font-weight: 700; cursor: pointer;
+            font-family: 'Chillax'; margin-top: 20px; font-size: 1.1rem;
         }
 
-        footer { padding: 60px; text-align: center; opacity: 0.4; font-size: 0.8rem; }
+        footer { padding: 80px; text-align: center; opacity: 0.5; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -111,45 +102,51 @@
     </header>
 
     <section class="hero">
-        <div class="bg-text-blur" style="top: 10%;">focus</div>
-        <h1 data-aos="zoom-out" data-aos-duration="1500">clean focus.<br>anytime.</h1>
-        <p data-aos="fade-up" data-aos-delay="500" style="color: #666; margin-top: 30px;">caffeine, designed for focus.</p>
+        <h1 data-aos="fade-up" data-aos-duration="1500">clean focus.<br>anytime.</h1>
+        <p style="color: #6d7a60; margin-top: 30px;">caffeine, designed for focus[cite: 23, 28].</p>
     </section>
 
     <div class="sticky-wrapper">
         <div class="sticky-container">
-            <div class="benefit-grid">
-                <div class="side-col">
-                    <div class="benefit-block" data-aos="fade-right">
+            <div class="benefit-content">
+                
+                <div class="side-col side-left">
+                    <div data-aos="fade-right" data-aos-anchor-placement="center-center">
                         <div class="benefit-text">clean</div>
                         <div class="benefit-sub">sustained energy</div>
                     </div>
-                    <div class="benefit-block" data-aos="fade-right" data-aos-delay="300">
+                    <div data-aos="fade-right" data-aos-delay="400" data-aos-anchor-placement="center-center">
                         <div class="benefit-text">no</div>
                         <div class="benefit-sub">jitters or crash</div>
                     </div>
                 </div>
 
-                <div class="center-visual" data-aos="fade-up" data-aos-duration="1200">
-                    <img src="pylu-hero.png" alt="pylu" class="pylu-image">
+                <div class="center-visual" data-aos="zoom-in" data-aos-duration="1200">
+                    <img src="pylu-hero.png" alt="pylu pouch" class="pylu-image">
                 </div>
 
-                <div class="side-col">
-                    <div class="benefit-block" data-aos="fade-left" data-aos-delay="150">
+                <div class="side-col side-right">
+                    <div data-aos="fade-left" data-aos-delay="200" data-aos-anchor-placement="center-center">
                         <div class="benefit-text">nicotine</div>
                         <div class="benefit-sub">free performance</div>
                     </div>
-                    <div class="benefit-block" data-aos="fade-left" data-aos-delay="450">
+                    <div data-aos="fade-left" data-aos-delay="600" data-aos-anchor-placement="center-center">
                         <div class="benefit-text">mental</div>
                         <div class="benefit-sub">clarity & attention</div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
 
+    <section class="phrase-section">
+        <div class="phrase" data-aos="fade-up">"focused, not jittery."</div>
+        <div class="phrase" data-aos="fade-up" data-aos-delay="200">"energy without the crash."</div>
+        <div class="phrase" data-aos="fade-up" data-aos-delay="400">"clear-headed and controlled."</div>
+    </section>
+
     <section class="shop">
-        <div class="bg-text-blur" style="bottom: 10%; right: 0;">shop</div>
         <div class="product-grid">
             <div class="product-card" data-aos="fade-up">
                 <div style="height:200px; background:#1c231c; border-radius:15px;"></div>
@@ -173,7 +170,7 @@
     </section>
 
     <footer>
-        <p>hello@pylu.com | nicotine-free | tobacco-free</p>
+        <p>hello@pylu.com | nicotine-free | tobacco-free [cite: 77, 79]</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -182,7 +179,7 @@
             duration: 1000, 
             once: false, 
             mirror: true,
-            offset: 120 
+            offset: 0 /* Ensures animations trigger exactly where the image is stuck */
         });
     </script>
 </body>
