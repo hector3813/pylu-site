@@ -10,7 +10,6 @@
 
     <style>
         :root {
-            --sage-text: #6d7a60;
             --sage-bg: #f4f6f2;
             --black: #000000;
         }
@@ -21,34 +20,45 @@
             overflow-x: hidden; -webkit-font-smoothing: antialiased;
         }
 
+        /* HEADER FIX: Space out from Hero content */
         header {
-            position: fixed; top: 0; width: 100%; z-index: 1000;
+            width: 100%;
             display: flex; justify-content: space-between; align-items: center;
-            padding: 30px 60px; background: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid #eee;
+            padding: 40px 60px; /* Increased padding */
+            background: #fff;
+            position: absolute; /* Changed from fixed to absolute to move with scroll */
+            top: 0;
+            z-index: 1000;
         }
         .logo { font-family: 'Satoshi', sans-serif; font-size: 2rem; text-transform: lowercase; }
         .cart-status { font-weight: 700; text-transform: uppercase; font-size: 0.8rem; cursor: pointer; }
 
+        /* HERO FIX: Extra top margin to prevent logo overlap */
         .hero-intro {
-            height: 100vh; display: flex; flex-direction: column; 
-            justify-content: center; align-items: center; text-align: center;
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center;
+            padding-top: 100px; /* Added padding to clear the logo area */
         }
         .hero-intro h1 { font-size: clamp(5rem, 15vw, 12rem); letter-spacing: -6px; line-height: 0.8; }
+        .hero-sub { margin-top: 40px; color: #888; font-size: 1.2rem; }
 
-        /* FIXED SCROLL SECTION */
+        /* LOCKED SCROLL SECTION */
         .scroll-section { height: 350vh; position: relative; }
         .sticky-box {
             position: sticky; top: 0; height: 100vh;
             display: flex; justify-content: center; align-items: center;
         }
         .locked-grid {
-            display: grid; grid-template-columns: 1fr 1fr 1fr; /* Equal 3-col split */
-            width: 100%; max-width: 1100px; /* Narrower to prevent overlap */
+            display: grid; grid-template-columns: 1fr 1fr 1fr;
+            width: 100%; max-width: 1100px;
             padding: 0 20px; align-items: center; gap: 40px;
         }
 
-        /* Large Benefit Text Styling */
+        /* Benefit Item Sizing */
         .benefit-item { margin-bottom: 80px; }
         .benefit-item:last-child { margin-bottom: 0; }
         .benefit-item p { 
@@ -76,7 +86,7 @@
         /* Shop Cards */
         .shop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding: 120px 60px; max-width: 1400px; margin: 0 auto; }
         .product-card { padding: 40px; border-radius: 30px; border: 1px solid #eee; transition: 0.5s; text-align: left; }
-        .product-card:hover { border-color: var(--sage-text); transform: translateY(-10px); }
+        .product-card:hover { border-color: #6d7a60; transform: translateY(-10px); }
         .product-card h2 { font-size: 2rem; margin: 25px 0 10px; text-transform: lowercase; font-weight: 500; }
         
         .buy-btn { 
@@ -97,7 +107,7 @@
 
     <section class="hero-intro">
         <h1 data-aos="fade-up" data-aos-duration="1500">pylu</h1>
-        <p style="margin-top: 20px; color: #888;">caffeine, designed for focus.</p>
+        <p class="hero-sub" data-aos="fade-up" data-aos-delay="400">caffeine, designed for focus.</p>
     </section>
 
     <div class="scroll-section">
@@ -138,7 +148,7 @@
     <section class="variety-page">
         <h2 style="font-size: 4rem; text-transform: lowercase; font-weight: 500;">variety pack</h2>
         <div class="variety-hero-img" data-aos="fade-up">
-            [ MASSIVE VARIETY PACK IMAGE ]
+            <p style="color: #999;">[ IMAGE OF VARIETY PACK ]</p>
         </div>
         <p style="font-size: 1.8rem; font-weight: 500;">$22.99</p>
         <button class="buy-btn" style="max-width: 400px; margin-top: 40px;">add to cart</button>
