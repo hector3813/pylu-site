@@ -13,7 +13,6 @@
             --sage-text: #6d7a60;
             --sage-bg: #f4f6f2;
             --black: #000000;
-            --grey-light: #f9f9f9;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -22,7 +21,6 @@
             overflow-x: hidden; -webkit-font-smoothing: antialiased;
         }
 
-        /* Fixed Navigation */
         header {
             position: fixed; top: 0; width: 100%; z-index: 1000;
             display: flex; justify-content: space-between; align-items: center;
@@ -32,23 +30,14 @@
         .logo { font-family: 'Satoshi', sans-serif; font-size: 2rem; text-transform: lowercase; }
         .cart-status { font-weight: 700; text-transform: uppercase; font-size: 0.8rem; cursor: pointer; }
 
-        /* INTRO */
         .hero-intro {
             height: 100vh; display: flex; flex-direction: column; 
             justify-content: center; align-items: center; text-align: center;
         }
         .hero-intro h1 { font-size: clamp(5rem, 15vw, 12rem); letter-spacing: -6px; line-height: 0.8; }
 
-        /* NEW BENEFITS SECTION: Clean Icons */
-        .benefits-icon-wrap {
-            padding: 100px 60px; display: grid; grid-template-columns: repeat(3, 1fr);
-            text-align: center; gap: 40px; max-width: 1200px; margin: 0 auto;
-        }
-        .icon-item img { width: 60px; margin-bottom: 20px; opacity: 0.8; }
-        .icon-item p { font-size: 1.1rem; font-weight: 500; }
-
         /* LOCKED SCROLL SECTION */
-        .scroll-section { height: 300vh; position: relative; }
+        .scroll-section { height: 350vh; position: relative; }
         .sticky-box {
             position: sticky; top: 0; height: 100vh;
             display: flex; justify-content: center; align-items: center;
@@ -57,19 +46,21 @@
             display: grid; grid-template-columns: 1fr 1.2fr 1fr;
             width: 100%; max-width: 1300px; padding: 0 40px; align-items: center;
         }
-        .benefit-title { font-size: clamp(2.5rem, 5vw, 5rem); color: var(--sage-text); letter-spacing: -3px; line-height: 1; text-transform: lowercase; }
+        .benefit-title { font-size: clamp(2.5rem, 5vw, 4.5rem); color: var(--sage-text); letter-spacing: -3px; line-height: 1; text-transform: lowercase; }
         .benefit-sub { color: #888; font-size: 1.1rem; margin-top: 5px; }
 
-        /* VARIETY PACK PAGE */
+        /* NEW RIGHT SIDE STYLING FOR REPLACED BENEFITS */
+        .ingredient-item { margin-bottom: 60px; }
+        .ingredient-item p { font-size: 1.8rem; font-weight: 500; line-height: 1.2; color: var(--black); text-transform: lowercase; }
+
         .variety-page { padding: 150px 60px; background: var(--sage-bg); text-align: center; }
         .variety-hero-img { 
             width: 100%; max-width: 1000px; height: 500px; 
             background: #fff; border-radius: 40px; margin: 60px auto; 
             box-shadow: 0 20px 60px rgba(0,0,0,0.05);
-            display: flex; align-items: center; justify-content: center; font-weight: 700; color: #ddd;
+            display: flex; align-items: center; justify-content: center;
         }
 
-        /* SHOP GRID */
         .shop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding: 120px 60px; max-width: 1400px; margin: 0 auto; }
         .product-card { padding: 40px; border-radius: 30px; border: 1px solid #eee; transition: 0.5s; text-align: left; }
         .product-card:hover { border-color: var(--sage-text); transform: translateY(-10px); }
@@ -78,12 +69,10 @@
         .buy-btn { 
             background: #000; color: #fff; border: none; padding: 22px; width: 100%; 
             border-radius: 15px; font-weight: 700; cursor: pointer; font-size: 1rem;
-            text-transform: uppercase; font-family: 'Chillax'; margin-top: 25px; transition: 0.3s;
+            text-transform: uppercase; font-family: 'Chillax'; margin-top: 25px;
         }
-        .buy-btn:hover { background: var(--sage-text); }
 
         footer { padding: 100px 60px; border-top: 1px solid #eee; display: flex; justify-content: space-between; color: #999; }
-        .footer-links a { display: block; color: #999; text-decoration: none; margin-bottom: 10px; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -98,24 +87,10 @@
         <p style="margin-top: 20px; color: #888;">caffeine, designed for focus.</p>
     </section>
 
-    <div class="benefits-icon-wrap" data-aos="fade-up">
-        <div class="icon-item">
-            <img src="sweetener-icon.png" alt="no artificial sweeteners">
-            <p>No Artificial Sweeteners</p>
-        </div>
-        <div class="icon-item">
-            <img src="ingredients-icon.png" alt="simple & clean ingredients">
-            <p>Simple & Clean Ingredients</p>
-        </div>
-        <div class="icon-item">
-            <img src="sugar-icon.png" alt="no sugar">
-            <p>No Sugar</p>
-        </div>
-    </div>
-
     <div class="scroll-section">
         <div class="sticky-box">
             <div class="locked-grid">
+                
                 <div style="text-align: right; padding-right: 60px;">
                     <div data-aos="fade-right">
                         <div class="benefit-title">clean</div>
@@ -132,13 +107,14 @@
                 </div>
 
                 <div style="text-align: left; padding-left: 60px;">
-                    <div data-aos="fade-left" data-aos-delay="200">
-                        <div class="benefit-title">nicotine</div>
-                        <div class="benefit-sub">free performance</div>
+                    <div class="ingredient-item" data-aos="fade-left">
+                        <p>no artificial<br>sweeteners</p>
                     </div>
-                    <div style="margin-top: 150px;" data-aos="fade-left" data-aos-delay="600">
-                        <div class="benefit-title">mental</div>
-                        <div class="benefit-sub">clarity & energy</div>
+                    <div class="ingredient-item" data-aos="fade-left" data-aos-delay="300">
+                        <p>simple & clean<br>ingredients</p>
+                    </div>
+                    <div class="ingredient-item" data-aos="fade-left" data-aos-delay="600">
+                        <p>no sugar</p>
                     </div>
                 </div>
             </div>
@@ -156,19 +132,19 @@
 
     <section class="shop-grid">
         <div class="product-card" data-aos="fade-up">
-            <div style="height:350px; background:var(--grey-light); border-radius:20px;"></div>
+            <div style="height:350px; background:#f9f9f9; border-radius:20px;"></div>
             <h2>thai iced tea</h2>
             <p style="color: #888;">$39.99 (5 pack)</p>
             <button class="buy-btn">add to cart</button>
         </div>
         <div class="product-card" data-aos="fade-up" data-aos-delay="100">
-            <div style="height:350px; background:var(--grey-light); border-radius:20px;"></div>
+            <div style="height:350px; background:#f9f9f9; border-radius:20px;"></div>
             <h2>matcha</h2>
             <p style="color: #888;">$39.99 (5 pack)</p>
             <button class="buy-btn">add to cart</button>
         </div>
         <div class="product-card" data-aos="fade-up" data-aos-delay="200">
-            <div style="height:350px; background:var(--grey-light); border-radius:20px;"></div>
+            <div style="height:350px; background:#f9f9f9; border-radius:20px;"></div>
             <h2>jasmine milk tea</h2>
             <p style="color: #888;">$39.99 (5 pack)</p>
             <button class="buy-btn">add to cart</button>
@@ -176,14 +152,11 @@
     </section>
 
     <footer>
-        <div>
-            <div class="logo" style="font-size: 1.5rem;">pylu</div>
-            <p style="margin-top: 10px;">hello@pylu.com</p>
-        </div>
-        <div class="footer-links">
-            <a href="#">Subscription Policy</a>
-            <a href="#">Terms & Conditions</a>
-            <a href="#">Contact</a>
+        <div class="logo" style="font-size: 1.5rem;">pylu</div>
+        <div style="display: flex; gap: 40px;">
+            <a href="#" style="color: #999; text-decoration: none;">Subscription Policy</a>
+            <a href="#" style="color: #999; text-decoration: none;">Terms & Conditions</a>
+            <a href="#" style="color: #999; text-decoration: none;">Contact</a>
         </div>
     </footer>
 
