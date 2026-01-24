@@ -36,23 +36,35 @@
         }
         .hero-intro h1 { font-size: clamp(5rem, 15vw, 12rem); letter-spacing: -6px; line-height: 0.8; }
 
-        /* LOCKED SCROLL SECTION */
+        /* FIXED SCROLL SECTION */
         .scroll-section { height: 350vh; position: relative; }
         .sticky-box {
             position: sticky; top: 0; height: 100vh;
             display: flex; justify-content: center; align-items: center;
         }
         .locked-grid {
-            display: grid; grid-template-columns: 1fr 1.2fr 1fr;
-            width: 100%; max-width: 1300px; padding: 0 40px; align-items: center;
+            display: grid; grid-template-columns: 1fr 1fr 1fr; /* Equal 3-col split */
+            width: 100%; max-width: 1100px; /* Narrower to prevent overlap */
+            padding: 0 20px; align-items: center; gap: 40px;
         }
-        .benefit-title { font-size: clamp(2.5rem, 5vw, 4.5rem); color: var(--sage-text); letter-spacing: -3px; line-height: 1; text-transform: lowercase; }
-        .benefit-sub { color: #888; font-size: 1.1rem; margin-top: 5px; }
 
-        /* NEW RIGHT SIDE STYLING FOR REPLACED BENEFITS */
-        .ingredient-item { margin-bottom: 60px; }
-        .ingredient-item p { font-size: 1.8rem; font-weight: 500; line-height: 1.2; color: var(--black); text-transform: lowercase; }
+        /* Large Benefit Text Styling */
+        .benefit-item { margin-bottom: 80px; }
+        .benefit-item:last-child { margin-bottom: 0; }
+        .benefit-item p { 
+            font-size: clamp(1.8rem, 3.5vw, 4rem); 
+            font-weight: 500; 
+            line-height: 1.1; 
+            color: var(--black); 
+            text-transform: lowercase; 
+            letter-spacing: -2px;
+        }
 
+        /* Center Pouch Image */
+        .center-pouch { display: flex; justify-content: center; align-items: center; }
+        .center-pouch img { width: 100%; max-width: 420px; height: auto; }
+
+        /* Variety Pack */
         .variety-page { padding: 150px 60px; background: var(--sage-bg); text-align: center; }
         .variety-hero-img { 
             width: 100%; max-width: 1000px; height: 500px; 
@@ -61,6 +73,7 @@
             display: flex; align-items: center; justify-content: center;
         }
 
+        /* Shop Cards */
         .shop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding: 120px 60px; max-width: 1400px; margin: 0 auto; }
         .product-card { padding: 40px; border-radius: 30px; border: 1px solid #eee; transition: 0.5s; text-align: left; }
         .product-card:hover { border-color: var(--sage-text); transform: translateY(-10px); }
@@ -91,29 +104,30 @@
         <div class="sticky-box">
             <div class="locked-grid">
                 
-                <div style="text-align: right; padding-right: 60px;">
-                    <div data-aos="fade-right">
-                        <div class="benefit-title">clean</div>
-                        <div class="benefit-sub">sustained focus</div>
-                    </div>
-                    <div style="margin-top: 150px;" data-aos="fade-right" data-aos-delay="400">
-                        <div class="benefit-title">no</div>
-                        <div class="benefit-sub">jitters or crash</div>
-                    </div>
-                </div>
-
-                <div style="text-align: center;" data-aos="zoom-in" data-aos-duration="1200">
-                    <img src="pylu-hero.png" alt="pylu pouch" style="width:100%; max-width:450px;">
-                </div>
-
-                <div style="text-align: left; padding-left: 60px;">
-                    <div class="ingredient-item" data-aos="fade-left">
+                <div style="text-align: right; padding-right: 20px;">
+                    <div class="benefit-item" data-aos="fade-right">
                         <p>no artificial<br>sweeteners</p>
                     </div>
-                    <div class="ingredient-item" data-aos="fade-left" data-aos-delay="300">
+                    <div class="benefit-item" data-aos="fade-right" data-aos-delay="300">
                         <p>simple & clean<br>ingredients</p>
                     </div>
-                    <div class="ingredient-item" data-aos="fade-left" data-aos-delay="600">
+                    <div class="benefit-item" data-aos="fade-right" data-aos-delay="600">
+                        <p>no sugar</p>
+                    </div>
+                </div>
+
+                <div class="center-pouch" data-aos="zoom-in" data-aos-duration="1200">
+                    <img src="pylu-hero.png" alt="pylu pouch">
+                </div>
+
+                <div style="text-align: left; padding-left: 20px;">
+                    <div class="benefit-item" data-aos="fade-left" data-aos-delay="150">
+                        <p>no artificial<br>sweeteners</p>
+                    </div>
+                    <div class="benefit-item" data-aos="fade-left" data-aos-delay="450">
+                        <p>simple & clean<br>ingredients</p>
+                    </div>
+                    <div class="benefit-item" data-aos="fade-left" data-aos-delay="750">
                         <p>no sugar</p>
                     </div>
                 </div>
